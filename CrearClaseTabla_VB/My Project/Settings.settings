@@ -1,0 +1,63 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="Left" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">-1</Value>
+    </Setting>
+    <Setting Name="Top" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">-1</Value>
+    </Setting>
+    <Setting Name="SQLDataSource" Type="System.String" Scope="User">
+      <Value Profile="(Default)">(local)\SQLEXPRESS</Value>
+    </Setting>
+    <Setting Name="SQLInitialCatalog" Type="System.String" Scope="User">
+      <Value Profile="(Default)">pubs</Value>
+    </Setting>
+    <Setting Name="SQLSeguridad" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SQLUserId" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SQLPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UsarSQL" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Lenguaje" Type="System.String" Scope="User">
+      <Value Profile="(Default)">VB</Value>
+    </Setting>
+    <Setting Name="OleDbBaseDeDatos" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E:\gsCodigo\Vb6\Pruebas\Bases\db2000NET.mdb</Value>
+    </Setting>
+    <Setting Name="OleDbProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Microsoft.Jet.OLEDB.4.0</Value>
+    </Setting>
+    <Setting Name="OleDbPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UsarCommandBuilder" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="CopyrightAutor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Guillermo 'guille' Som</Value>
+    </Setting>
+    <Setting Name="CopyrightVersion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2.0.0.0</Value>
+    </Setting>
+    <Setting Name="CopyrightFecha" Type="System.String" Scope="User">
+      <Value Profile="(Default)">30/Nov/2018</Value>
+    </Setting>
+    <Setting Name="UsarAddWithValue" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="UsarExecuteScalar" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="usarOverrides" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
