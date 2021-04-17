@@ -73,6 +73,7 @@ Partial Public Class Form1
         Me.chkUsarDataAdapter = New System.Windows.Forms.CheckBox()
         Me.chkUsarOverrides = New System.Windows.Forms.CheckBox()
         Me.grbOpciones = New System.Windows.Forms.GroupBox()
+        Me.chkUsarSQLEXpress = New System.Windows.Forms.CheckBox()
         Me.grbAccess.SuspendLayout()
         Me.grbSQL.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -302,6 +303,7 @@ Partial Public Class Form1
         '
         Me.grbSQL.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grbSQL.Controls.Add(Me.chkUsarSQLEXpress)
         Me.grbSQL.Controls.Add(Me.chkSeguridadSQL)
         Me.grbSQL.Controls.Add(Me.txtPassword)
         Me.grbSQL.Controls.Add(Me.txtUserId)
@@ -547,6 +549,18 @@ Partial Public Class Form1
         Me.grbOpciones.TabIndex = 11
         Me.grbOpciones.TabStop = False
         '
+        'chkUsarSQLEXpress
+        '
+        Me.chkUsarSQLEXpress.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.chkUsarSQLEXpress.Location = New System.Drawing.Point(530, -2)
+        Me.chkUsarSQLEXpress.Margin = New System.Windows.Forms.Padding(2)
+        Me.chkUsarSQLEXpress.Name = "chkUsarSQLEXpress"
+        Me.chkUsarSQLEXpress.Size = New System.Drawing.Size(126, 19)
+        Me.chkUsarSQLEXpress.TabIndex = 9
+        Me.chkUsarSQLEXpress.Text = "Usar SQLEXPRESS"
+        Me.toolTip1.SetToolTip(Me.chkUsarSQLEXpress, "Marca esta casilla para usar '.\SQLEXPRESS' en el Data source y 'Seguridad Integr" &
+        "ada'")
+        '
         'Form1
         '
         Me.AllowDrop = True
@@ -626,4 +640,5 @@ Partial Public Class Form1
     Private WithEvents chkUsarDataAdapter As CheckBox
     Private WithEvents chkUsarOverrides As CheckBox
     Friend WithEvents grbOpciones As GroupBox
+    Private WithEvents chkUsarSQLEXpress As CheckBox
 End Class

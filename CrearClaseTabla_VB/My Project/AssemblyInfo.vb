@@ -9,10 +9,10 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("gsCrearClaseTabla_VB")>
-<Assembly: AssemblyDescription("Generar clases a partir de una tabla de una base de datos de SQL Server o de Access  (revisión del 21-dic-2020)")>
+<Assembly: AssemblyDescription("Generar clases a partir de una tabla de una base de datos de SQL Server o de Access  (revisión del 17-abr-2021)")>
 <Assembly: AssemblyCompany("elGuille")>
 <Assembly: AssemblyProduct("gsCrearClaseTabla_VB")>
-<Assembly: AssemblyCopyright("©Guillermo Som (elGuille), 2004-2007, 2018-2020")>
+<Assembly: AssemblyCopyright("©Guillermo Som (elGuille), 2004-2007, 2018-2021")>
 <Assembly: AssemblyTrademark("Microsoft Visual Basic 2019 (.NET 4.8)")>
 
 <Assembly: ComVisible(False)>
@@ -32,5 +32,5 @@ Imports System.Runtime.InteropServices
 ' <Assembly: AssemblyVersion("1.0.*")>
 
 <Assembly: AssemblyVersion("2.0.0.0")>
-<Assembly: AssemblyFileVersion("2.0.0.15")>
+<Assembly: AssemblyFileVersion("2.0.0.16")>
 

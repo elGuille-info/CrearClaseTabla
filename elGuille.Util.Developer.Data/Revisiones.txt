@@ -1,6 +1,28 @@
 '------------------------------------------------------------------------------
 ' Revisiones las aplicación y las de esta biblioteca de clases
 '------------------------------------------------------------------------------
+'<revision("1.0.0.32", _
+'   FechaModificacion:= "17/Abr/2021", _
+'   Tester:= "elGuille", _
+'   FechaReporte:= "17/Abr/2021", _
+'   Tipo:= "Revisión", _
+'   Clases:= "CrearClase", _
+'   Miembro:= "generarClase", _
+'   Motivo:= "En nuevoNombreClase la variable o_N la pongo con el nombre completo de la clase en vez delprimer caracter.", _
+'   Solucion:= "NO HACERLO, DEBE SER o_N porque el parámetro es o_NombreClase", _
+'   Comentarios:= "Es por cuestión estética, aunque yo no uso nuevoClase (ni Borrar).")>
+'
+'<revision("1.0.0.31", _
+'   FechaModificacion:= "17/Abr/2021", _
+'   Tester:= "elGuille", _
+'   FechaReporte:= "17/Abr/2021", _
+'   Tipo:= "Revisión", _
+'   Clases:= "CrearClase", _
+'   Miembro:= "generarClase", _
+'   Motivo:= "Añadir una comprobación de si es nulo el objeto tran no usarlo.", _
+'   Solucion:= "Cambiar el código.", _
+'   Comentarios:= "Dio una vez error al no poder conectarse y no crearse el objeto connection.")>
+'
 '<revision("1.0.0.30", _
 '   FechaModificacion:= "21/Dic/2020", _
 '   Tester:= "elGuille", _

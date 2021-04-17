@@ -203,17 +203,15 @@ Namespace elGuille.Util.Developer.Data
             sb.AppendFormat("{0} Fecha: {1}{2}", ConvLang.Comentario(), DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss").Replace("./", "/"), vbCrLf)
             sb.AppendFormat("{0}{1}", ConvLang.Comentario(), vbCrLf)
             ' Cambio 'guille' por (elGuille)                        (22/Mar/19)
-            If DateTime.Now.Year > 2019 Then
+            If DateTime.Now.Year > 2021 Then
                 sb.AppendFormat("{0}{1}", ConvLang.Comentario(String.Format(" ©Guillermo (elGuille) Som, 2004-{0}", DateTime.Now.Year)), vbCrLf)
             Else
-                sb.AppendFormat("{0}{1}", ConvLang.Comentario(" ©Guillermo (elGuille) Som, 2004-2019"), vbCrLf)
+                sb.AppendFormat("{0}{1}", ConvLang.Comentario(" ©Guillermo (elGuille) Som, 2004-2021"), vbCrLf)
             End If
             sb.AppendFormat("{0}{1}", ConvLang.Comentario("------------------------------------------------------------------------------"), vbCrLf)
             '
             If lang = eLenguaje.eVBNET Then
                 sb.AppendFormat("Option Strict On{0}", vbCrLf)
-                ' Quito Option Explicit On                          (22/Mar/19)
-                'sb.AppendFormat("Option Explicit On{0}", vbCrLf)
                 ' Añado Option Infer On                             (17/Nov/18)
                 sb.AppendFormat("Option Infer On{0}", vbCrLf)
                 sb.AppendFormat("{0}{1}", ConvLang.Comentario(), vbCrLf)
@@ -247,7 +245,7 @@ Namespace elGuille.Util.Developer.Data
             '
             ' ajustarAncho: método privado para ajustar los caracteres de los campos de tipo String
             'sb.AppendFormat("    {0}{1}", ConvLang.Comentario(" Este método se usará para ajustar los anchos de las propiedades"), vbCrLf)
-            sb.AppendFormat("{0}", ConvLang.DocumentacionXML("    ", {"Este método se usará para ajustar los anchos de las propiedades"}))
+            sb.AppendFormat("{0}", ConvLang.DocumentacionXML("    ", {" Este método se usará para ajustar los anchos de las propiedades"}))
             sb.AppendFormat("    {0}{1}", ConvLang.Function("Private", "ajustarAncho", "String", "cadena", "String", "ancho", "Integer"), vbCrLf)
             sb.AppendFormat("        {0}{1}", ConvLang.VariableNewParam("Dim", "sb", "System.Text.StringBuilder", "New String("" ""c, ancho)"), vbCrLf)
             sb.AppendFormat("        {0}{1}", ConvLang.Comentario(" devolver la cadena quitando los espacios en blanco"), vbCrLf)
@@ -343,37 +341,11 @@ Namespace elGuille.Util.Developer.Data
                 Select Case col.DataType.ToString
                     Case "System.String"
                         sb.AppendFormat("                {0}{1}", ConvLang.Asigna("Me." & campos(col.ColumnName).ToString, "value"), vbCrLf)
-                    'Case "System.DateTime"
-                    '    sb.AppendFormat("                {0}{1}", ConvLang.Try(), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}", ConvLang.Asigna("Me." & campos(col.ColumnName).ToString, "System.DateTime.Parse(value)"), vbCrLf)
-                    '    sb.AppendFormat("                {0}{1}", ConvLang.Catch(), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}", ConvLang.Comentario(" TODO: Usa el valor de fecha que quieras predeterminar"), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}", ConvLang.Comentario("       Una fecha ficticia:"), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}{2}", ConvLang.Comentario(), ConvLang.AsignaNew("Me." & campos(col.ColumnName).ToString, "System.DateTime", "1900, 1, 1"), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}", ConvLang.Comentario("       o la fecha de hoy:"), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}", ConvLang.Asigna("Me." & campos(col.ColumnName).ToString, "System.DateTime.Now"), vbCrLf)
-                    '    sb.AppendFormat("                {0}{1}", ConvLang.EndTry(), vbCrLf)
-                    'Case "System.Int16", "System.Int32", "System.Int64",
-                    '     "System.Single", "System.Decimal", "System.Double",
-                    '     "System.Byte", "System.SByte", "System.UInt16", "System.UInt32", "System.UInt64"
-                    '    sb.AppendFormat("                {0}{1}", ConvLang.Try(), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}", ConvLang.Asigna("Me." & campos(col.ColumnName).ToString, col.DataType.ToString & ".Parse(""0"" & value)"), vbCrLf)
-                    '    sb.AppendFormat("                {0}{1}", ConvLang.Catch(), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}", ConvLang.Asigna("Me." & campos(col.ColumnName).ToString, col.DataType.ToString & ".Parse(""0"")"), vbCrLf)
-                    '    sb.AppendFormat("                {0}{1}", ConvLang.EndTry(), vbCrLf)
-                    'Case "System.Boolean"
-                    '    sb.AppendFormat("                {0}{1}", ConvLang.Try(), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}", ConvLang.Asigna("Me." & campos(col.ColumnName).ToString, col.DataType.ToString & ".Parse(value)"), vbCrLf)
-                    '    sb.AppendFormat("                {0}{1}", ConvLang.Catch(), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}", ConvLang.Asigna("Me." & campos(col.ColumnName).ToString, "False"), vbCrLf)
-                    '    sb.AppendFormat("                {0}{1}", ConvLang.EndTry(), vbCrLf)
                     Case "System.Int16", "System.Int32", "System.Int64",
                          "System.Single", "System.Decimal", "System.Double",
                          "System.Byte", "System.SByte", "System.UInt16", "System.UInt32", "System.UInt64",
                          "System.Boolean", "System.DateTime", "System.Char", "System.TimeSpan"
-                        'sb.AppendFormat("        {0}{1}", ConvLang.Asigna("Me." & campos(col.ColumnName).ToString, col.DataType.ToString & ".Parse(""0"" & value)"), vbCrLf)
                         sb.AppendFormat("        {0}{1}", ConvLang.Asigna(String.Format("Me.{1}", nombreClase, campos(col.ColumnName).ToString), String.Format("ConversorTipos.{1}Data(value)", col.ColumnName, col.DataType.ToString().Replace("System.", ""))), vbCrLf)
-
                     Case "System.Byte[]"
                         sb.AppendFormat("                {0} Es un Binario largo (array de Byte){1}", ConvLang.Comentario(), vbCrLf)
                         sb.AppendFormat("                {0} y por tanto no se le puede asignar el contenido de una cadena...{1}", ConvLang.Comentario(), vbCrLf)
@@ -427,38 +399,12 @@ Namespace elGuille.Util.Developer.Data
                 Select Case col.DataType.ToString
                     Case "System.String"
                         sb.AppendFormat("                {0}{1}", ConvLang.Asigna("Me." & campos(col.ColumnName).ToString, "value"), vbCrLf)
-                    'Case "System.DateTime"
-                    '    sb.AppendFormat("                {0}{1}", ConvLang.Try(), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}", ConvLang.Asigna("Me." & campos(col.ColumnName).ToString, "System.DateTime.Parse(value)"), vbCrLf)
-                    '    sb.AppendFormat("                {0}{1}", ConvLang.Catch(), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}", ConvLang.Comentario(" TODO: Usa el valor de fecha que quieras predeterminar"), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}", ConvLang.Comentario("       Una fecha ficticia:"), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}{2}", ConvLang.Comentario(), ConvLang.AsignaNew("Me." & campos(col.ColumnName).ToString, "System.DateTime", "1900, 1, 1"), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}", ConvLang.Comentario("       o la fecha de hoy:"), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}", ConvLang.Asigna("Me." & campos(col.ColumnName).ToString, "System.DateTime.Now"), vbCrLf)
-                    '    sb.AppendFormat("                {0}{1}", ConvLang.EndTry(), vbCrLf)
-                    'Case "System.Int16", "System.Int32", "System.Int64",
-                    '     "System.Single", "System.Decimal", "System.Double",
-                    '     "System.Byte", "System.SByte", "System.UInt16", "System.UInt32", "System.UInt64"
-                    '    sb.AppendFormat("                {0}{1}", ConvLang.Try(), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}", ConvLang.Asigna("Me." & campos(col.ColumnName).ToString, col.DataType.ToString & ".Parse(""0"" & value)"), vbCrLf)
-                    '    sb.AppendFormat("                {0}{1}", ConvLang.Catch(), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}", ConvLang.Asigna("Me." & campos(col.ColumnName).ToString, col.DataType.ToString & ".Parse(""0"")"), vbCrLf)
-                    '    sb.AppendFormat("                {0}{1}", ConvLang.EndTry(), vbCrLf)
-                    'Case "System.Boolean"
-                    '    sb.AppendFormat("                {0}{1}", ConvLang.Try(), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}", ConvLang.Asigna("Me." & campos(col.ColumnName).ToString, col.DataType.ToString & ".Parse(value)"), vbCrLf)
-                    '    sb.AppendFormat("                {0}{1}", ConvLang.Catch(), vbCrLf)
-                    '    sb.AppendFormat("                    {0}{1}", ConvLang.Asigna("Me." & campos(col.ColumnName).ToString, "False"), vbCrLf)
-                    '    sb.AppendFormat("                {0}{1}", ConvLang.EndTry(), vbCrLf)
                     Case "System.Int16", "System.Int32", "System.Int64",
                          "System.Single", "System.Decimal", "System.Double",
                          "System.Byte", "System.SByte", "System.UInt16", "System.UInt32", "System.UInt64",
                          "System.Boolean", "System.DateTime", "System.Char", "System.TimeSpan"
                         sb.AppendFormat("        {0}{1}", ConvLang.Asigna(String.Format("Me.{1}", nombreClase, campos(col.ColumnName).ToString), String.Format("ConversorTipos.{1}Data(value)", col.ColumnName, col.DataType.ToString().Replace("System.", ""))), vbCrLf)
-
                     Case "System.Byte[]"
-                        '
                         sb.AppendFormat("                {0} Es un Binario largo (array de Byte){1}", ConvLang.Comentario(), vbCrLf)
                         sb.AppendFormat("                {0} y por tanto no se le puede asignar el contenido de una cadena...{1}", ConvLang.Comentario(), vbCrLf)
                     Case Else
@@ -471,20 +417,16 @@ Namespace elGuille.Util.Developer.Data
             sb.AppendFormat("            {0}{1}", ConvLang.EndIf(), vbCrLf)
             sb.AppendFormat("        {0}{1}", ConvLang.EndSet(), vbCrLf)
             sb.AppendFormat("    {0}{1}", ConvLang.EndProperty(), vbCrLf)
-            '
-            '
-            'sb.AppendLine()
+
             sb.AppendLine()
             sb.AppendFormat("    {0}{1}", ConvLang.Comentario("-------------------------------------------------------------------------"), vbCrLf)
             sb.AppendFormat("    {0}{1}", ConvLang.Comentario(" Campos y métodos compartidos (estáticos) para gestionar la base de datos"), vbCrLf)
             sb.AppendFormat("    {0}{1}", ConvLang.Comentario("-------------------------------------------------------------------------"), vbCrLf)
-            'sb.AppendLine()
             sb.AppendLine()
-            '
+
             '------------------------------------------------------------------
             ' la cadena de conexión
             '------------------------------------------------------------------
-            'sb.AppendFormat("    {0}{1}", ConvLang.Comentario(" La cadena de conexión a la base de datos"), vbCrLf)
             sb.AppendFormat("{0}{1}", ConvLang.DocumentacionXML("    ",
                                                                {" La cadena de conexión a la base de datos.",
                                                                 " Definida Public para poder asignar otro valor",
@@ -516,11 +458,10 @@ Namespace elGuille.Util.Developer.Data
             '------------------------------------------------------------------
             ' la cadena de selección (campo público)
             '------------------------------------------------------------------
-            sb.AppendFormat("    {0}{1}", ConvLang.DocumentacionXML("La cadena de selección"), vbCrLf)
+            sb.AppendFormat("    {0}{1}", ConvLang.DocumentacionXML(" La cadena de selección"), vbCrLf)
             sb.AppendFormat("    {0}{1}", ConvLang.DeclaraVariable("Public Shared Property", "CadenaSelect", "String", Chr(34) & cadenaSelect & Chr(34)), vbCrLf)
             sb.AppendLine()
-            'sb.AppendLine()
-            '
+
             '------------------------------------------------------------------
             ' constructores
             ' Uno sin parámetros y otro que recibe la cadena de conexión
@@ -530,20 +471,17 @@ Namespace elGuille.Util.Developer.Data
             sb.AppendFormat("    {0}{1}", ConvLang.Constructor("Public", nombreClase, "conex", "String"), vbCrLf)
             sb.AppendFormat("        {0}{1}", ConvLang.Asigna("CadenaConexion", "conex"), vbCrLf)
             sb.AppendFormat("    {0}{1}", ConvLang.EndSub(), vbCrLf)
-            '
-            'sb.AppendLine()
+
             sb.AppendLine()
             sb.AppendFormat("    {0}{1}", ConvLang.Comentario("-----------------------------------------"), vbCrLf)
             sb.AppendFormat("    {0}{1}", ConvLang.Comentario(" Métodos compartidos (estáticos) privados"), vbCrLf)
             sb.AppendFormat("    {0}{1}", ConvLang.Comentario("-----------------------------------------"), vbCrLf)
-            'sb.AppendLine()
             sb.AppendLine()
-            '
+
             '------------------------------------------------------------------
             ' row2<nombreClase>: asigna una fila de la tabla a un objeto del tipo de la clase
             '------------------------------------------------------------------
             sb.AppendFormat("{0}", ConvLang.DocumentacionXML("    ", {" Asigna una fila de la tabla a un objeto " & nombreClase}))
-            'sb.AppendFormat("    {0}{1}", ConvLang.Function("Private Shared", "row2" & nombreClase, nombreClase, "r", "DataRow"), vbCrLf)
             sb.AppendFormat("    {0}{1}", ConvLang.Function("Public Shared", "Row2Tipo", nombreClase, "r", "DataRow"), vbCrLf)
             sb.AppendFormat("        {2} asigna a un objeto {0} los datos del dataRow indicado{1}", nombreClase, vbCrLf, ConvLang.Comentario())
             sb.AppendFormat("        {0}{1}", ConvLang.VariableNew("Dim", "o_" & nombreClase, nombreClase), vbCrLf)
@@ -552,28 +490,11 @@ Namespace elGuille.Util.Developer.Data
                 Select Case col.DataType.ToString
                     Case "System.String"
                         sb.AppendFormat("        {0}{1}", ConvLang.Asigna(String.Format("o_{0}.{1}", nombreClase, campos(col.ColumnName).ToString), String.Format("r[""{0}""].ToString()", col.ColumnName)), vbCrLf)
-                    'Case "System.DateTime"
-                    '    sb.AppendFormat("        {0}{1}", ConvLang.Try(), vbCrLf)
-                    '    sb.AppendFormat("            {0}{1}", ConvLang.Asigna(String.Format("o_{0}.{1}", nombreClase, campos(col.ColumnName).ToString), String.Format("DateTime.Parse(r[""{0}""].ToString())", col.ColumnName)), vbCrLf)
-                    '    sb.AppendFormat("        {0}{1}", ConvLang.Catch(), vbCrLf)
-                    '    sb.AppendFormat("            {0}{1}", ConvLang.Comentario(" TODO: Usa el valor de fecha que quieras predeterminar"), vbCrLf)
-                    '    sb.AppendFormat("            {0}{1}", ConvLang.Comentario("       Una fecha ficticia:"), vbCrLf)
-                    '    sb.AppendFormat("            {0}{1}{2}", ConvLang.Comentario(), ConvLang.AsignaNew(String.Format("o_{0}.{1}", nombreClase, campos(col.ColumnName).ToString), "DateTime", "1900, 1, 1"), vbCrLf)
-                    '    sb.AppendFormat("            {0}{1}", ConvLang.Comentario("       o la fecha de hoy:"), vbCrLf)
-                    '    sb.AppendFormat("            {0}{1}", ConvLang.Asigna(String.Format("o_{0}.{1}", nombreClase, campos(col.ColumnName).ToString), "DateTime.Now"), vbCrLf)
-                    '    sb.AppendFormat("        {0}{1}", ConvLang.EndTry(), vbCrLf)
                     Case "System.Int16", "System.Int32", "System.Int64",
                          "System.Single", "System.Decimal", "System.Double",
                          "System.Byte", "System.SByte", "System.UInt16", "System.UInt32", "System.UInt64",
                          "System.Boolean", "System.DateTime", "System.Char", "System.TimeSpan"
-                        'sb.AppendFormat("        {0}{1}", ConvLang.Asigna(String.Format("o_{0}.{1}", nombreClase, campos(col.ColumnName).ToString), String.Format("{1}.Parse(""0"" & r[""{0}""].ToString())", col.ColumnName, col.DataType.ToString)), vbCrLf)
                         sb.AppendFormat("        {0}{1}", ConvLang.Asigna(String.Format("o_{0}.{1}", nombreClase, campos(col.ColumnName).ToString), String.Format("ConversorTipos.{1}Data(r[""{0}""].ToString())", col.ColumnName, col.DataType.ToString().Replace("System.", ""))), vbCrLf)
-                    'Case "System.Boolean"
-                    '    sb.AppendFormat("        {0}{1}", ConvLang.Try(), vbCrLf)
-                    '    sb.AppendFormat("            {0}{1}", ConvLang.Asigna(String.Format("o_{0}.{1}", nombreClase, campos(col.ColumnName).ToString), String.Format("System.Boolean.Parse(r[""{0}""].ToString())", col.ColumnName)), vbCrLf)
-                    '    sb.AppendFormat("        {0}{1}", ConvLang.Catch(), vbCrLf)
-                    '    sb.AppendFormat("            {0}{1}", ConvLang.Asigna(String.Format("o_{0}.{1}", nombreClase, campos(col.ColumnName).ToString), "False"), vbCrLf)
-                    '    sb.AppendFormat("        {0}{1}", ConvLang.EndTry(), vbCrLf)
                     Case "System.Byte[]"
                         sb.AppendFormat("        {2}{0}{1}", ConvLang.Asigna(String.Format("o_{0}.{1}", nombreClase, campos(col.ColumnName).ToString), String.Format("r[""{0}""]", col.ColumnName)), vbCrLf, ConvLang.Comentario())
                     Case Else
@@ -592,8 +513,7 @@ Namespace elGuille.Util.Developer.Data
             '------------------------------------------------------------------
             ' <nombreClase>2Row: asigna un objeto de la clase a la fila indicada
             '------------------------------------------------------------------
-            'sb.AppendFormat("    {0} asigna un objeto {1} a la fila indicada{2}", ConvLang.Comentario(), nombreClase, vbCrLf)
-            sb.AppendFormat("{0}", ConvLang.DocumentacionXML("    ", {String.Format("asigna un objeto {0} a la fila indicada", nombreClase)}))
+            sb.AppendFormat("{0}", ConvLang.DocumentacionXML("    ", {String.Format(" Asigna un objeto {0} a la fila indicada", nombreClase)}))
             sb.AppendFormat("    {0}{1}", ConvLang.Sub("Private Shared", String.Format("{0}2Row", nombreClase), "o_" & nombreClase, nombreClase, "r", "DataRow"), vbCrLf)
             sb.AppendFormat("        {0}{1}", ConvLang.Comentario(String.Format(" asigna un objeto {0} al dataRow indicado", nombreClase)), vbCrLf)
             For Each col As DataColumn In mDataTable.Columns
@@ -613,20 +533,17 @@ Namespace elGuille.Util.Developer.Data
             '------------------------------------------------------------------
             ' nuevo<nombreClase>: crea una nueva fila y la asigna a un objeto de la clase
             '------------------------------------------------------------------
-            'sb.AppendFormat("    {0} crea una nueva fila y la asigna a un objeto {1}{2}", ConvLang.Comentario(), nombreClase, vbCrLf)
-            sb.AppendFormat("{0}", ConvLang.DocumentacionXML("    ", {String.Format("crea una nueva fila y la asigna a un objeto {0}", nombreClase)}))
+            sb.AppendFormat("{0}", ConvLang.DocumentacionXML("    ", {String.Format(" Crea una nueva fila y la asigna a un objeto {0}", nombreClase)}))
             sb.AppendFormat("    {0}{1}", ConvLang.Sub("Private Shared", "nuevo" & nombreClase, "dt", "DataTable", "o_" & nombreClase, nombreClase), vbCrLf)
             sb.AppendFormat("        {2} Crear un nuevo {0}{1}", nombreClase, vbCrLf, ConvLang.Comentario())
             sb.AppendFormat("        {0}{1}", ConvLang.DeclaraVariable("Dim", "dr", "DataRow", "dt.NewRow()"), vbCrLf)
             '------------------------------------------------------------------
-            ' En lugar de "o_" & nombreClase.Substring(0, 1),        (02/Nov/04)
+            ' En lugar de "o" & nombreClase.Substring(0, 1),        (02/Nov/04)
             ' usar "o_"  & nombreClase.Substring(0, 1)
             ' ya que si la clase empieza por R,
             ' se creará una variable llamada oR, que no es válida.
-            '
-            ' Gracias a David Sans por la indicación.
+            '   Gracias a David Sans por la indicación.
             '------------------------------------------------------------------
-            'sb.AppendFormat("        {0}{1}", ConvLang.DeclaraVariable("Dim", "o_" & nombreClase.Substring(0, 1), nombreClase, "row2" & nombreClase & "(dr)"), vbCrLf)
             sb.AppendFormat("        {0}{1}", ConvLang.DeclaraVariable("Dim", "o_" & nombreClase.Substring(0, 1), nombreClase, "Row2Tipo" & "(dr)"), vbCrLf)
             sb.AppendLine()
             For Each col As DataColumn In mDataTable.Columns
@@ -651,7 +568,7 @@ Namespace elGuille.Util.Developer.Data
             ' hay dos sobrecargas: una sin parámetros y
             ' otra en la que se indica la cadena de selección a usar
             '------------------------------------------------------------------
-            sb.AppendFormat("{0}{1}", ConvLang.DocumentacionXML("    ", {"devuelve una tabla con los datos indicados en la cadena de selección"}), vbCrLf)
+            sb.AppendFormat("{0}{1}", ConvLang.DocumentacionXML("    ", {" Devuelve una tabla con los datos indicados en la cadena de selección"}), vbCrLf)
             sb.AppendFormat("    {0}{1}", ConvLang.Function("Public Shared", "Tabla", "DataTable"), vbCrLf)
             sb.AppendFormat("        {0}{1}", ConvLang.Return("Tabla(CadenaSelect)"), vbCrLf)
             sb.AppendFormat("    {0}{1}", ConvLang.EndFunction(), vbCrLf)
@@ -678,11 +595,7 @@ Namespace elGuille.Util.Developer.Data
                                                                       " El parámetro contendrá lo que se usará después del WHERE.",
                                                                       " Si no se encuentra lo buscado, se devuelve un valor nulo."}))
             sb.AppendFormat("    {0}{1}", ConvLang.Function("Public Shared", "Buscar", nombreClase, "sWhere", "String"), vbCrLf)
-            'sb.AppendFormat("        {0}{1}", ConvLang.Comentario(" Busca en la tabla los datos indicados en el parámetro"), vbCrLf)
-            'sb.AppendFormat("        {0}{1}", ConvLang.Comentario(" el parámetro contendrá lo que se usará después del WHERE"), vbCrLf)
             sb.AppendFormat("        {0}{1}", ConvLang.DeclaraVariable("Dim", "o_" & nombreClase, nombreClase, "Nothing"), vbCrLf)
-            'sb.AppendFormat("        {0}{1}", ConvLang.Variable("Dim", "da", dbPrefix & "DataAdapter"), vbCrLf)
-            'sb.AppendFormat("        {0}{1}", ConvLang.VariableNewParam("Dim", "dt", "DataTable", String.Format("{0}{1}{0}", Chr(34), nombreClase)), vbCrLf)
             'Dim sel As String = "SELECT * FROM Clientes WHERE " & sWhere
             sb.AppendFormat("        {0}{1}", ConvLang.Variable("Dim", "sel", "String", String.Format("{0}SELECT * FROM {1} WHERE {0} & sWhere", Chr(34), nombreTabla)), vbCrLf)
             'Using con As New SqlConnection(CadenaConexion)
@@ -719,14 +632,6 @@ Namespace elGuille.Util.Developer.Data
             sb.AppendFormat("            {0}{1}", ConvLang.EndTry(), vbCrLf)
             sb.AppendFormat("        {0}{1}", ConvLang.EndUsing(), vbCrLf)
             sb.AppendLine()
-            'sb.AppendLine()
-            'sb.AppendFormat("        {0}{1}", ConvLang.AsignaNew("da", dbPrefix & "DataAdapter(sel, CadenaConexion)"), vbCrLf)
-            'sb.AppendFormat("        {0}{1}", ConvLang.Instruccion("da.Fill(dt)"), vbCrLf)
-            'sb.AppendLine()
-            'sb.AppendFormat("        {0}{1}", ConvLang.If("dt.Rows.Count", ">", "0"), vbCrLf)
-            ''sb.AppendFormat("            {0}{1}", ConvLang.Asigna("o_" & nombreClase, "row2" & nombreClase & "(dt.Rows(0))"), vbCrLf)
-            'sb.AppendFormat("            {0}{1}", ConvLang.Asigna("o_" & nombreClase, "Row2Tipo" & "(dt.Rows(0))"), vbCrLf)
-            'sb.AppendFormat("        {0}{1}", ConvLang.EndIf(), vbCrLf)
             sb.AppendFormat("        {0}{1}", ConvLang.Return("o_" & nombreClase), vbCrLf)
             sb.AppendFormat("    {0}{1}", ConvLang.EndFunction(), vbCrLf)
             sb.AppendLine()
@@ -749,12 +654,6 @@ Namespace elGuille.Util.Developer.Data
                                                               " se comprueba si el " & campoIDnombre & " existe en la tabla.",
                                                               " TODO: Si en lugar de " & campoIDnombre & " usas otro campo, indicalo en la cadena SELECT",
                                                               " También puedes usar la sobrecarga en la que se indica la cadena SELECT a usar"}))
-            'sb.AppendFormat("    {0} Actualizar: Actualiza los datos en la tabla usando la instancia actual{1}", ConvLang.Comentario(), vbCrLf)
-            'sb.AppendFormat("    {0}             Si la instancia no hace referencia a un registro existente, se creará uno nuevo{1}", ConvLang.Comentario(), vbCrLf)
-            'sb.AppendFormat("    {0}             Para comprobar si el objeto en memoria coincide con uno existente,{1}", ConvLang.Comentario(), vbCrLf)
-            'sb.AppendFormat("    {0}             se comprueba si el {2} existe en la tabla.{1}", ConvLang.Comentario(), vbCrLf, campoIDnombre)
-            'sb.AppendFormat("    {0}             TODO: Si en lugar de {2} usas otro campo, indicalo en la cadena SELECT{1}", ConvLang.Comentario(), vbCrLf, campoIDnombre)
-            'sb.AppendFormat("    {0}                   También puedes usar la sobrecarga en la que se indica la cadena SELECT a usar{1}", ConvLang.Comentario(), vbCrLf)
             If UsarOverrides Then
                 sb.AppendFormat("    {0}{1}", ConvLang.Function("Public Overrides", "Actualizar", "String"), vbCrLf)
             Else
@@ -789,7 +688,6 @@ Namespace elGuille.Util.Developer.Data
             sb.AppendFormat("        {1} Actualiza los datos indicados{0}", vbCrLf, ConvLang.Comentario())
             sb.AppendFormat("        {1} El parámetro, que es una cadena de selección, indicará el criterio de actualización{0}", vbCrLf, ConvLang.Comentario())
             sb.AppendLine()
-            'sb.AppendFormat("        {1} En caso de error, devolverá la cadena empezando por ERROR.{0}", vbCrLf, ConvLang.Comentario())
             ' El código para usar Command o DataAdapter             (07/Abr/19)
             If UsarDataAdapter Then
                 sb.AppendFormat("        {0}{1}", ConvLang.DeclaraVariable("Dim", "cnn", dbPrefix & "Connection"), vbCrLf)
@@ -1041,7 +939,6 @@ Namespace elGuille.Util.Developer.Data
                 sb.AppendLine()
                 ' No usar With ya que C# no lo soporta... (ni lo tengo definido :-P )
                 ' Nota: solo para SQL Server y AddWithValue
-                'sb.AppendFormat("            {0}{1}", ConvLang.Comentario(" Nota: Solo para SQL Server y con AddWithValue."), vbCrLf)
                 '         cmd.Parameters.AddWithValue("@ID", ID)
                 For Each col As DataColumn In mDataTable.Columns
                     Select Case col.DataType.ToString
@@ -1077,8 +974,13 @@ Namespace elGuille.Util.Developer.Data
                 sb.AppendFormat("              {0}{1}", ConvLang.Comentario(" Si hay error, deshacemos lo que se haya hecho."), vbCrLf)
                 '         Try
                 sb.AppendFormat("              {0}{1}", ConvLang.Try(), vbCrLf)
+                ' Añadir comprobación de nulo en el objeto tran     (17-abr-21)
+                '   If tran IsNot Nothing Then
+                sb.AppendFormat("                  {0}{1}", ConvLang.If("tran", "IsNot", "Nothing"), vbCrLf)
                 '             tran.Rollback()
-                sb.AppendFormat("                {0}{1}", ConvLang.Instruccion("tran.Rollback()"), vbCrLf)
+                sb.AppendFormat("                        {0}{1}", ConvLang.Instruccion("tran.Rollback()"), vbCrLf)
+                ' End If
+                sb.AppendFormat("                  {0}{1}", ConvLang.EndIf, vbCrLf)
                 '         Catch ex2 As Exception
                 sb.AppendFormat("              {0}{1}", ConvLang.Catch("ex2", "Exception"), vbCrLf)
                 '             msg &= $" (ERROR RollBack: {ex.Message})"
@@ -1117,8 +1019,6 @@ Namespace elGuille.Util.Developer.Data
             Else
                 sb.AppendFormat("    {0}{1}", ConvLang.Function("Public", "Crear", "String"), vbCrLf)
             End If
-            'sb.AppendFormat("        {1} Crear un nuevo registro{0}", vbCrLf, ConvLang.Comentario())
-            'sb.AppendFormat("        {1} En caso de error, devolverá la cadena de error empezando por ERROR:.{0}", vbCrLf, ConvLang.Comentario())
             If UsarDataAdapter Then
                 sb.AppendFormat("        {0}{1}", ConvLang.DeclaraVariable("Dim", "cnn", dbPrefix & "Connection"), vbCrLf)
                 sb.AppendFormat("        {0}{1}", ConvLang.DeclaraVariable("Dim", "da", dbPrefix & "DataAdapter"), vbCrLf)
@@ -1370,7 +1270,6 @@ Namespace elGuille.Util.Developer.Data
                 sb.AppendLine()
                 ' No usar With ya que C# no lo soporta... (ni lo tengo definido :-P )
                 ' Nota: solo para SQL Server y AddWithValue
-                'sb.AppendFormat("            {0}{1}", ConvLang.Comentario(" Nota: Solo para SQL Server y con AddWithValue."), vbCrLf)
                 '         cmd.Parameters.AddWithValue("@ID", ID)
                 For Each col As DataColumn In mDataTable.Columns
                     If col.AutoIncrement = False Then
@@ -1411,8 +1310,13 @@ Namespace elGuille.Util.Developer.Data
                 sb.AppendFormat("              {0}{1}", ConvLang.Try(), vbCrLf)
                 '         ' Si hay error, deshacemos lo que se haya hecho
                 sb.AppendFormat("                {0}{1}", ConvLang.Comentario(" Si hay error, deshacemos lo que se haya hecho."), vbCrLf)
+                ' Añadir comprobación de nulo en el objeto tran     (17-abr-21)
+                '   If tran IsNot Nothing Then
+                sb.AppendFormat("                  {0}{1}", ConvLang.If("tran", "IsNot", "Nothing"), vbCrLf)
                 '             tran.Rollback()
-                sb.AppendFormat("                {0}{1}", ConvLang.Instruccion("tran.Rollback()"), vbCrLf)
+                sb.AppendFormat("                        {0}{1}", ConvLang.Instruccion("tran.Rollback()"), vbCrLf)
+                ' End If
+                sb.AppendFormat("                  {0}{1}", ConvLang.EndIf, vbCrLf)
                 '         Catch ex2 As Exception
                 sb.AppendFormat("              {0}{1}", ConvLang.Catch("ex2", "Exception"), vbCrLf)
                 '             msg &= $" (ERROR RollBack: {ex.Message})"
@@ -1517,6 +1421,7 @@ Namespace elGuille.Util.Developer.Data
             '     con.Close()
             sb.AppendFormat("                  {0}{1}", ConvLang.Instruccion("con.Close()"), vbCrLf)
             ' End If
+            sb.AppendFormat("              {0}{1}", ConvLang.EndIf, vbCrLf)
             sb.AppendFormat("            {0}{1}", ConvLang.EndTry(), vbCrLf)
             sb.AppendLine()
             sb.AppendFormat("        {0}{1}", ConvLang.EndUsing(), vbCrLf)

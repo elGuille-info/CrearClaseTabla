@@ -46,6 +46,9 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>elGuille.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />

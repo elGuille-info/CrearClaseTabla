@@ -39,6 +39,8 @@
 '                       la opción de poder usar ExecuteScalar en lugar de DataAdapter
 '                       No quito el uso de DataAdapter en INSERT y UPDATE
 '                       si no que se puede usar ExecuteScalar o un DataAdapter.
+'
+'   2.0016  17-abr-2021 Poder asignar rápidamente el uso de SQLExpress.
 '------------------------------------------------------------------------------
 Option Strict On
 Option Explicit On 
@@ -51,6 +53,8 @@ Imports elGuille.Util.Developer.Data
 Imports elGuille.Util.Developer
 
 Public Class Form1
+
+    Private ValoresAntSQLExpress As (usarSQL As Boolean, segIntegrada As Boolean, dataSource As String, initialCatalog As String)
 
     Private inicializando As Boolean = True
 
@@ -97,6 +101,9 @@ Public Class Form1
         Else
             optCS.Checked = True
         End If
+
+        ' Guardar los valores iniciales, por si se usa chkUsarSQLEXpress (17/Abr/21)
+        ValoresAntSQLExpress = (optSQL.Checked, chkSeguridadSQL.Checked, txtDataSource.Text, txtInitialCatalog.Text)
 
         inicializando = False
 
@@ -176,7 +183,9 @@ Public Class Form1
     Private Sub btnGenerarClase_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGenerarClase.Click
         ' generar la clase a partir de la tabla seleccionada
         If txtSelect.Text = "" Then
-            MessageBox.Show("Debes especificar la cadena de selección de datos", "Generar clase", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Debes especificar la cadena de selección de datos",
+                            "Generar clase",
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtSelect.Focus()
             Return
         End If
@@ -342,18 +351,19 @@ Public Class Form1
         chkUsarCommandBuilder.Enabled = chkUsarDataAdapter.Checked
     End Sub
 
-    'Private Sub Chk_CheckedChanged(sender As Object,
-    '                               e As EventArgs) Handles chkUsarExecuteScalar.CheckedChanged,
-    '                                                       chkUsarCommandBuilder.CheckedChanged
-    '    If inicializando Then Return
-    '    Dim chk As CheckBox = TryCast(sender, CheckBox)
+    Private Sub chkUsarSQLEXpress_CheckedChanged(sender As Object, e As EventArgs) Handles chkUsarSQLEXpress.CheckedChanged
+        If inicializando Then Return
+        If chkUsarSQLEXpress.Checked Then
+            ValoresAntSQLExpress = (optSQL.Checked, chkSeguridadSQL.Checked, txtDataSource.Text, txtInitialCatalog.Text)
+            optSQL.Checked = True
+            chkSeguridadSQL.Checked = False
+            txtDataSource.Text = ".\SQLEXPRESS"
+        Else
+            optSQL.Checked = ValoresAntSQLExpress.usarSQL
+            chkSeguridadSQL.Checked = ValoresAntSQLExpress.segIntegrada
+            txtDataSource.Text = ValoresAntSQLExpress.dataSource
+            txtInitialCatalog.Text = ValoresAntSQLExpress.initialCatalog
+        End If
+    End Sub
 
-
-    '    If sender Is chkUsarExecuteScalar Then
-    '        chkUsarCommandBuilder.Checked = Not chk.Checked
-    '    Else
-    '        chkUsarExecuteScalar.Checked = Not chkUsarCommandBuilder.Checked
-    '    End If
-
-    'End Sub
 End Class
