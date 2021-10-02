@@ -1069,7 +1069,7 @@ Namespace elGuille.Util.Developer.Data
                 '         cmd.CommandText = "CrearCliente"
                 sb.AppendFormat("                {0}{1}", ConvLang.Comentario(ConvLang.Asigna("cmd.CommandText", $"""Crear{nombreTabla}""")), vbCrLf, ChrW(34))
                 sb.AppendLine()
-                sb.AppendFormat("                {0}{1}", ConvLang.DeclaraVariable("Dim", "sCommand", "String"), vbCrLf)
+                sb.AppendFormat("            {0}{1}", ConvLang.DeclaraVariable("Dim", "sCommand", "String"), vbCrLf)
             End If
             '
             sb1 = New System.Text.StringBuilder

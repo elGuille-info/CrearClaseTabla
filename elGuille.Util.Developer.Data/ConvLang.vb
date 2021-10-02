@@ -72,9 +72,9 @@ Namespace elGuille.Util.Developer
         ''' </summary>
         Public Shared Function DocumentacionXML(coment As String) As String
             If Lang = eLenguaje.eCS Then
-                Return "///<sumary>" & coment & "</sumary>"
+                Return "///<summary>" & coment & "</summary>"
             Else 'If Lang = eLenguaje.eVBNET Then
-                Return "'''<sumary>" & coment & "</sumary>"
+                Return "'''<summary>" & coment & "</summary>"
             End If
         End Function
 
@@ -90,11 +90,11 @@ Namespace elGuille.Util.Developer
             Else
                 iniDocXML = "'''"
             End If
-            sb.AppendFormat("{0}{1}<sumary>{2}", indentacion, iniDocXML, vbCrLf)
+            sb.AppendFormat("{0}{1}<summary>{2}", indentacion, iniDocXML, vbCrLf)
             For i = 0 To coments.Length - 1
                 sb.AppendFormat("{0}{1}{2}{3}", indentacion, iniDocXML, coments(i), vbCrLf)
             Next
-            sb.AppendFormat("{0}{1}</sumary>{2}", indentacion, iniDocXML, vbCrLf)
+            sb.AppendFormat("{0}{1}</summary>{2}", indentacion, iniDocXML, vbCrLf)
 
             Return sb.ToString
         End Function

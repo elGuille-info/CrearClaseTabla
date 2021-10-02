@@ -9,7 +9,7 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("elGuille.Util.Developer.Data")>
-<Assembly: AssemblyDescription("Generar clases a partir de tablas de bases de datos  (revisión del 17-abr-2021)")>
+<Assembly: AssemblyDescription("Generar clases a partir de tablas de bases de datos  (revisión del 2-oct-2021)")>
 <Assembly: AssemblyCompany("elGuille")>
 <Assembly: AssemblyProduct("elGuille.Util.Developer.Data")>
 <Assembly: AssemblyCopyright("©Guillermo 'guille' Som, 2007, 2018-2021")>
@@ -32,4 +32,4 @@ Imports System.Runtime.InteropServices
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
 <Assembly: AssemblyVersion("2.0.0.0")>
-<Assembly: AssemblyFileVersion("2.0.0.32")>
+<Assembly: AssemblyFileVersion("2.0.0.33")>
