@@ -1,6 +1,7 @@
 '------------------------------------------------------------------------------
-' Revisiones las aplicación y las de esta biblioteca de clases
+' Revisiones de la aplicación y las de esta biblioteca de clases
 '------------------------------------------------------------------------------
+
 '<revision("1.1.0.12", _
 '   FechaModificacion:= "01/Oct/2022", _
 '   Tester:= "elGuille", _
