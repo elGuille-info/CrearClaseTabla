@@ -4,7 +4,10 @@
 '------------------------------------------------------------------------------
 ' Revisiones las aplicación y las de esta biblioteca de clases
 '------------------------------------------------------------------------------
+```
+### Revisiones de 2022
 
+```
 '<revision("1.1.0.12", _
 '   FechaModificacion:= "01/Oct/2022", _
 '   Tester:= "elGuille", _
