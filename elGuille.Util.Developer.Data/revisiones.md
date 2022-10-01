@@ -8,6 +8,17 @@
 ### Revisiones de 2022
 
 ```
+'<revision("1.1.0.14", _
+'   FechaModificacion:= "01/Oct/2022", _
+'   Tester:= "elGuille", _
+'   FechaReporte:= "01/Oct/2022", _
+'   Tipo:= "Revisión", _
+'   Clases:= "CrearClase", _
+'   Miembro:= "generarClase", _
+'   Motivo:= "Actualizo el año a mostrar en el fichero generado.", _
+'   Solucion:= "", _
+'   Comentarios:= "")>
+
 '<revision("1.1.0.13", _
 '   FechaModificacion:= "01/Oct/2022", _
 '   Tester:= "elGuille", _
