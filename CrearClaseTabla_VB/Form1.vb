@@ -5,7 +5,7 @@
 '
 ' Para Visual Basic 2005 usando elGuille.Util.Developer.Data        (17/Abr/07)
 '
-' ©Guillermo 'guille' Som, 2004-2005, 2007, 2018, 2019
+' ©Guillermo 'guille' Som, 2004-2005, 2007, 2018-2019, 2021-2022
 '------------------------------------------------------------------------------
 ' Revisiones:
 '   0.0000  07/Jul/2004 Empiezo con los cambios para usar tablas SQL
@@ -41,9 +41,14 @@
 '                       si no que se puede usar ExecuteScalar o un DataAdapter.
 '
 '   2.0016  17-abr-2021 Poder asignar rápidamente el uso de SQLExpress.
+'           02-oct-2021 Seguramente lo cambié a .NET Framework 4.8
+'
+'   2.1.0   01-oct-2022 Cambio a .NET Framework 4.8.1 y cambios en CrearClase.
+'   2.1.0.7 01-oct-2022 Añado un StatusStrip
 '------------------------------------------------------------------------------
 Option Strict On
-Option Explicit On 
+Option Explicit On
+Option Infer On
 '
 Imports System
 Imports System.Windows.Forms
@@ -53,6 +58,28 @@ Imports elGuille.Util.Developer.Data
 Imports elGuille.Util.Developer
 
 Public Class Form1
+
+    ''' <summary>
+    ''' Devuelve el valor de FileVersion usando FileVersionInfo.
+    ''' </summary>
+    ''' <returns>El valor de FileVersion.</returns>
+    ''' <remarks>01/Oct/22</remarks>
+    Private Function VersionDLL() As String
+        Dim s As String
+
+        Try
+            Dim ensamblado = GetType(Form1).Assembly
+            'Dim ensamblado = System.Reflection.Assembly.GetExecutingAssembly()
+            Dim fvi = FileVersionInfo.GetVersionInfo(ensamblado.Location)
+            ' FileDescription en realidad muestra (o eso parece) lo mismo de ProductName
+            s = fvi.FileVersion
+
+        Catch ex As Exception
+            s = "2.1.0.7"
+        End Try
+
+        Return s
+    End Function
 
     Private ValoresAntSQLExpress As (usarSQL As Boolean, segIntegrada As Boolean, dataSource As String, initialCatalog As String)
 
@@ -71,6 +98,15 @@ Public Class Form1
                 Me.Top = My.Settings.Top
             End If
         End If
+        ' Añdir información al status. (01/oct/22 11.55)
+        Dim sCopyR = "©Guillermo Som (elGuille), 2004-2007, 2018-"
+        Dim elAño = 2022
+        If Date.Today.Year > 2022 Then
+            elAño = Date.Today.Year
+        End If
+        LabelInfo.Text = $"  {sCopyR}{elAño}  "
+        ' Usando My.Application.Info.Version.ToString(3) devuelve solo las 3 primeras cifras.
+        LabelVersion.Text = $"  {My.Application.Info.ProductName} - v{My.Application.Info.Version.ToString(3)} ({VersionDLL()})  "
 
         txtSelect.Text = ""
         txtCodigo.Text = ""

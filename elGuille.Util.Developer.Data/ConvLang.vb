@@ -27,14 +27,16 @@ Namespace elGuille.Util.Developer
     Public Class ConvLang
         Public Shared Lang As eLenguaje
         ' las comprobaciones se harán sin tener en cuenta mayúsculas/minúsculas
-        Private Shared tiposVB() As String = {"short", "integer", "long", "string", "object", "double", "single", "date", "decimal", "boolean", "byte", "char"}
-        Private Shared tiposCS() As String = {"short", "int", "long", "string", "object", "double", "float", "DateTime", "decimal", "bool", "byte", "char"}
+        Private Shared tiposVB() As String = {"", "short", "integer", "long", "string", "object", "double", "single", "date", "decimal", "boolean", "byte", "char"}
+        Private Shared tiposCS() As String = {"var", "short", "int", "long", "string", "object", "double", "float", "DateTime", "decimal", "bool", "byte", "char"}
         Private Shared modificadoresVB() As String = {"public", "private", "friend", "protected", "shared", "overrides", "overridable", "shadows"}
         Private Shared modificadoresCS() As String = {"public", "private", "internal", "protected", "static", "override", "virtual", "new"}
         Private Shared compVB() As String = {"=", "<>"}
         Private Shared compCS() As String = {"==", "!="}
-        Private Shared instrVB() As String = {"IsNot ", " Is", " Nothing", "Not", ".Rows(0)", "New ", ", Me", " Me.", " Me(", " Me,", "(Me,", "True", "False", " & ", Chr(34) & " " & Chr(34) & "c"}
-        Private Shared instrCS() As String = {"is !", " is", " null", "!", ".Rows[0]", "new ", ", this", " this.", " this(", " this,", "(this,", "true", "false", " + ", "' '"}
+        'Private Shared instrCS() As String = {"is !", " is", " null", "!", ".Rows[0]", "new ", ", this", " this.", " this(", " this,", "(this,", "true", "false", " + ", "' '"}
+        ' Mejorar las comprobaciones de IsNot e Is y añado And, AndAlso, Or y OrElse. (01/oct/22 09.10)
+        Private Shared instrVB() As String = {"CBool", "CByte", "CChar", "CDate", "CDbl", "CDec", "CInt", "CLng", "CObj", "CSByte", "CShort", "CSng", "CStr", "CUInt", "CULng", "CUShort", "OrElse", "AndAlso", "Or", "And", "IsNot", "Is", "Nothing", "Not", ".Rows(0)", "New ", ", Me", " Me.", " Me(", " Me,", "(Me,", "True", "False", " & ", Chr(34) & " " & Chr(34) & "c"}
+        Private Shared instrCS() As String = {"Convert.ToBoolean", "Convert.ToByte", "Convert.ToChar", "Convert.ToDateTime", "Convert.ToDouble", "Convert.ToDecimal", "Convert.ToInt32", "Convert.ToInt64", "", "Convert.ToSByte", "Convert.ToInt16", "Convert.ToSingle", "Convert.ToString", "Convert.ToUInt32", "Convert.ToUint64", "Convert.ToUint16", " || ", " && ", " | ", " & ", " != ", " == ", " null ", " ! ", ".Rows[0]", "new ", ", this", " this.", " this(", " this,", "(this,", "true", "false", " + ", "' '"}
 
         ''' <summary>
         ''' El parámetro puede incluir más de uno (separado por espacio)
@@ -586,7 +588,15 @@ Namespace elGuille.Util.Developer
         End Function
         '
         Public Shared Function Tipo(ByVal elTipo As String) As String
+            ' Si no se indica el tipo, devolver una cadena vacía. (01/oct/22 08.38)
+            'If String.IsNullOrWhiteSpace(elTipo) Then Return ""
+
             If Lang = eLenguaje.eCS Then
+                ' Mejor comprobar que es una cadena vaía, por si IndexOf no comprueba el valor "". (01/oct/22 09.41)
+                'If String.IsNullOrWhiteSpace(elTipo) Then
+                '    Return "var "
+                'End If
+                ' Probar si funciona con "". Sí, funciona.
                 Dim i As Integer = Array.IndexOf(tiposVB, elTipo.ToLower)
                 If i > -1 Then
                     elTipo = tiposCS(i)
@@ -632,10 +642,19 @@ Namespace elGuille.Util.Developer
                     Return String.Format("{0} {1} {2} = {3};", modificador(modif), Tipo(elTipo), nombre, comprobarParam(valor))
                 End If
             Else 'If Lang = eLenguaje.eVBNET Then
-                If modif = "" Then
-                    Return String.Format("{0} As {1} = {2}", nombre, elTipo, valor)
+                ' Si no se indica el tipo, no usar As. (01/oct/22 09.50)
+                If elTipo = "" Then
+                    If modif = "" Then
+                        Return String.Format("{0} {1} = {2}", nombre, elTipo, valor)
+                    Else
+                        Return String.Format("{0} {1} {2} = {3}", modif, nombre, elTipo, valor)
+                    End If
                 Else
-                    Return String.Format("{0} {1} As {2} = {3}", modif, nombre, elTipo, valor)
+                    If modif = "" Then
+                        Return String.Format("{0} As {1} = {2}", nombre, elTipo, valor)
+                    Else
+                        Return String.Format("{0} {1} As {2} = {3}", modif, nombre, elTipo, valor)
+                    End If
                 End If
             End If
         End Function
@@ -706,6 +725,7 @@ Namespace elGuille.Util.Developer
         Private Shared Function comprobarParam(ByVal var As String) As String
             ' por ejemplo, en un parámetro se puede indicar "New LosQueSea"
             If Lang = eLenguaje.eCS Then
+                ' Habría que comprobar si hay más de una instrucción en la cadena a evaluar. (01/oct/22 10.24)
                 For i As Integer = 0 To instrVB.Length - 1
                     var = (" " & var).Replace(instrVB(i), instrCS(i)).Substring(1)
                 Next

@@ -9,11 +9,11 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("elGuille.Util.Developer.Data")>
-<Assembly: AssemblyDescription("Generar clases a partir de tablas de bases de datos  (revisión del 2-oct-2021)")>
+<Assembly: AssemblyDescription("Generar clases a partir de tablas de bases de datos  (revisión del 1-oct-2022)")>
 <Assembly: AssemblyCompany("elGuille")>
 <Assembly: AssemblyProduct("elGuille.Util.Developer.Data")>
-<Assembly: AssemblyCopyright("©Guillermo 'guille' Som, 2007, 2018-2021")>
-<Assembly: AssemblyTrademark("Microsoft Visual Basic 2019 (.NET 4.8)")>
+<Assembly: AssemblyCopyright("©Guillermo 'guille' Som, 2007, 2018-2022")>
+<Assembly: AssemblyTrademark("Microsoft Visual Basic 2019 (.NET 4.8.1)")>
 
 <Assembly: ComVisible(False)>
 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("2.0.0.0")>
-<Assembly: AssemblyFileVersion("2.0.0.33")>
+<Assembly: AssemblyVersion("2.1.0.0")>
+<Assembly: AssemblyFileVersion("2.1.0.12")>

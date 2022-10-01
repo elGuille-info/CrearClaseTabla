@@ -4,7 +4,7 @@
 '
 ' Nota: Ver las revisiones en Revisiones.txt
 '
-' ©Guillermo 'guille' Som, 2004, 2005, 2007, 2018-2020
+' ©Guillermo 'guille' Som, 2004, 2005, 2007, 2018-2022
 '------------------------------------------------------------------------------
 Option Explicit On
 Option Strict On
@@ -1287,8 +1287,35 @@ Namespace elGuille.Util.Developer.Data
                 '         cmd.Transaction = tran
                 sb.AppendFormat("            {0}{1}", ConvLang.Asigna("cmd.Transaction", "tran"), vbCrLf)
                 sb.AppendLine()
+                ' Nuevo código comprobando que ExecuteScalar no devuelva nulo. 
+                ' código anterior
                 '         Dim id As Integer = CInt(cmd.ExecuteScalar())
-                sb.AppendFormat("            {0}{1}", ConvLang.DeclaraVariable("Dim", "id", "Integer", "CInt(cmd.ExecuteScalar())"), vbCrLf)
+                'sb.AppendFormat("            {0}{1}", ConvLang.DeclaraVariable("Dim", "id", "Integer", "CInt(cmd.ExecuteScalar())"), vbCrLf)
+                ' Nuevo código:
+                '       Dim id As Integer
+                sb.AppendFormat("            {0}{1}", ConvLang.DeclaraVariable("Dim", "id", "Integer"), vbCrLf)
+                '       ' Comprobación extra al usar ExecuteScalar. (01/oct/22 08.14)
+                sb.AppendFormat("            {0}{1}", ConvLang.Comentario(" Comprobación extra al usar ExecuteScalar. (01/oct/22 08.14)"), vbCrLf)
+                '       Dim obj = cmd.ExecuteScalar()
+                sb.AppendFormat("            {0}{1}", ConvLang.DeclaraVariable("Dim", "obj", "", "cmd.ExecuteScalar()"), vbCrLf)
+                '       If DBNull.Value.Equals(obj) OrElse obj Is Nothing Then
+                sb.AppendFormat("            {0}{1}", ConvLang.If("DBNull.Value.Equals(obj) OrElse obj", "Is", "Nothing"), vbCrLf)
+                '           id = -1
+                sb.AppendFormat("                {0}{1}", ConvLang.Asigna("id", "-1"), vbCrLf)
+                '           Return "ERROR al crear el Rango."
+                sb.AppendFormat("                {0}{1}", ConvLang.Return($"""ERROR al crear {nombreClase}."""), vbCrLf)
+                '       Else
+                sb.AppendFormat("            {0}{1}", ConvLang.Else(), vbCrLf)
+                '           id = CInt(obj)
+                sb.AppendFormat("                {0}{1}", ConvLang.Asigna("id", "CInt(obj)"), vbCrLf)
+                Dim obj As Object
+                obj = "1"
+                Dim iObj As Integer
+                iObj = CInt(obj)
+                '       End If
+                sb.AppendFormat("            {0}{1}", ConvLang.EndIf(), vbCrLf)
+                '
+                sb.AppendLine()
                 '         Me.ID = id
                 sb.AppendFormat("            {0}{1}", ConvLang.Asigna("Me.ID", "id"), vbCrLf)
                 sb.AppendLine()
@@ -1305,40 +1332,40 @@ Namespace elGuille.Util.Developer.Data
                 '     Catch ex As Exception
                 sb.AppendFormat("            {0}{1}", ConvLang.Catch("ex", "Exception"), vbCrLf)
                 '         msg = $"ERROR: {ex.Message}"
-                sb.AppendFormat("              {0}{1}", ConvLang.Asigna("msg", "$""ERROR: {ex.Message}"""), vbCrLf)
+                sb.AppendFormat("                {0}{1}", ConvLang.Asigna("msg", "$""ERROR: {ex.Message}"""), vbCrLf)
                 '         Try
-                sb.AppendFormat("              {0}{1}", ConvLang.Try(), vbCrLf)
+                sb.AppendFormat("                {0}{1}", ConvLang.Try(), vbCrLf)
                 '         ' Si hay error, deshacemos lo que se haya hecho
-                sb.AppendFormat("                {0}{1}", ConvLang.Comentario(" Si hay error, deshacemos lo que se haya hecho."), vbCrLf)
+                sb.AppendFormat("                    {0}{1}", ConvLang.Comentario(" Si hay error, deshacemos lo que se haya hecho."), vbCrLf)
                 ' Añadir comprobación de nulo en el objeto tran     (17-abr-21)
                 '   If tran IsNot Nothing Then
-                sb.AppendFormat("                  {0}{1}", ConvLang.If("tran", "IsNot", "Nothing"), vbCrLf)
+                sb.AppendFormat("                    {0}{1}", ConvLang.If("tran", "IsNot", "Nothing"), vbCrLf)
                 '             tran.Rollback()
                 sb.AppendFormat("                        {0}{1}", ConvLang.Instruccion("tran.Rollback()"), vbCrLf)
                 ' End If
-                sb.AppendFormat("                  {0}{1}", ConvLang.EndIf, vbCrLf)
+                sb.AppendFormat("                    {0}{1}", ConvLang.EndIf, vbCrLf)
                 '         Catch ex2 As Exception
                 sb.AppendFormat("              {0}{1}", ConvLang.Catch("ex2", "Exception"), vbCrLf)
                 '             msg &= $" (ERROR RollBack: {ex.Message})"
-                sb.AppendFormat("                {0}{1}", ConvLang.Asigna("msg", "$""ERROR RollBack: {ex2.Message})"""), vbCrLf)
+                sb.AppendFormat("                  {0}{1}", ConvLang.Asigna("msg", "$""ERROR RollBack: {ex2.Message})"""), vbCrLf)
                 '         End Try
                 sb.AppendFormat("              {0}{1}", ConvLang.EndTry(), vbCrLf)
                 sb.AppendLine()
                 sb.AppendFormat("            {0}{1}", ConvLang.Finally, vbCrLf)
                 ' If Not (con is nothing) then
-                sb.AppendFormat("              {0}{1}", ConvLang.If("", "Not", "(con Is Nothing)"), vbCrLf)
+                sb.AppendFormat("                {0}{1}", ConvLang.If("", "Not", "(con Is Nothing)"), vbCrLf)
                 '     con.Close()
-                sb.AppendFormat("                  {0}{1}", ConvLang.Instruccion("con.Close()"), vbCrLf)
+                sb.AppendFormat("                    {0}{1}", ConvLang.Instruccion("con.Close()"), vbCrLf)
                 ' End If
-                sb.AppendFormat("              {0}{1}", ConvLang.EndIf, vbCrLf)
+                sb.AppendFormat("                {0}{1}", ConvLang.EndIf, vbCrLf)
                 '     End Try
                 sb.AppendFormat("            {0}{1}", ConvLang.EndTry(), vbCrLf)
                 sb.AppendLine()
                 ' End Using
-                sb.AppendFormat("            {0}{1}", ConvLang.EndUsing(), vbCrLf)
+                sb.AppendFormat("        {0}{1}", ConvLang.EndUsing(), vbCrLf)
                 sb.AppendLine()
                 ' Return msg
-                sb.AppendFormat("            {0}{1}", ConvLang.Return("msg"), vbCrLf)
+                sb.AppendFormat("        {0}{1}", ConvLang.Return("msg"), vbCrLf)
             End If
             sb.AppendFormat("    {0}{1}", ConvLang.EndFunction(), vbCrLf)
             sb.AppendLine()

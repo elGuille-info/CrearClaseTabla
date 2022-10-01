@@ -53,6 +53,7 @@ Partial Public Class Form1
         Me.txtNombreBase = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.grbSQL = New System.Windows.Forms.GroupBox()
+        Me.chkUsarSQLEXpress = New System.Windows.Forms.CheckBox()
         Me.chkSeguridadSQL = New System.Windows.Forms.CheckBox()
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.txtUserId = New System.Windows.Forms.TextBox()
@@ -73,11 +74,14 @@ Partial Public Class Form1
         Me.chkUsarDataAdapter = New System.Windows.Forms.CheckBox()
         Me.chkUsarOverrides = New System.Windows.Forms.CheckBox()
         Me.grbOpciones = New System.Windows.Forms.GroupBox()
-        Me.chkUsarSQLEXpress = New System.Windows.Forms.CheckBox()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.LabelInfo = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.LabelVersion = New System.Windows.Forms.ToolStripStatusLabel()
         Me.grbAccess.SuspendLayout()
         Me.grbSQL.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.grbOpciones.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnGuardar
@@ -322,6 +326,18 @@ Partial Public Class Form1
         Me.grbSQL.TabIndex = 2
         Me.grbSQL.TabStop = False
         '
+        'chkUsarSQLEXpress
+        '
+        Me.chkUsarSQLEXpress.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.chkUsarSQLEXpress.Location = New System.Drawing.Point(530, -2)
+        Me.chkUsarSQLEXpress.Margin = New System.Windows.Forms.Padding(2)
+        Me.chkUsarSQLEXpress.Name = "chkUsarSQLEXpress"
+        Me.chkUsarSQLEXpress.Size = New System.Drawing.Size(126, 19)
+        Me.chkUsarSQLEXpress.TabIndex = 9
+        Me.chkUsarSQLEXpress.Text = "Usar SQLEXPRESS"
+        Me.toolTip1.SetToolTip(Me.chkUsarSQLEXpress, "Marca esta casilla para usar '.\SQLEXPRESS' en el Data source y 'Seguridad Integr" &
+        "ada'")
+        '
         'chkSeguridadSQL
         '
         Me.chkSeguridadSQL.FlatStyle = System.Windows.Forms.FlatStyle.System
@@ -549,24 +565,39 @@ Partial Public Class Form1
         Me.grbOpciones.TabIndex = 11
         Me.grbOpciones.TabStop = False
         '
-        'chkUsarSQLEXpress
+        'StatusStrip1
         '
-        Me.chkUsarSQLEXpress.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.chkUsarSQLEXpress.Location = New System.Drawing.Point(530, -2)
-        Me.chkUsarSQLEXpress.Margin = New System.Windows.Forms.Padding(2)
-        Me.chkUsarSQLEXpress.Name = "chkUsarSQLEXpress"
-        Me.chkUsarSQLEXpress.Size = New System.Drawing.Size(126, 19)
-        Me.chkUsarSQLEXpress.TabIndex = 9
-        Me.chkUsarSQLEXpress.Text = "Usar SQLEXPRESS"
-        Me.toolTip1.SetToolTip(Me.chkUsarSQLEXpress, "Marca esta casilla para usar '.\SQLEXPRESS' en el Data source y 'Seguridad Integr" &
-        "ada'")
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LabelInfo, Me.LabelVersion})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 732)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(689, 24)
+        Me.StatusStrip1.TabIndex = 15
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'LabelInfo
+        '
+        Me.LabelInfo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.LabelInfo.Name = "LabelInfo"
+        Me.LabelInfo.Size = New System.Drawing.Size(558, 19)
+        Me.LabelInfo.Spring = True
+        Me.LabelInfo.Text = "©Guillermo Som (elGuille), 2004-2007, 2018-2022"
+        Me.LabelInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LabelVersion
+        '
+        Me.LabelVersion.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left
+        Me.LabelVersion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.LabelVersion.Name = "LabelVersion"
+        Me.LabelVersion.Size = New System.Drawing.Size(85, 19)
+        Me.LabelVersion.Text = "v2.1.0 (2.1.0.6)"
         '
         'Form1
         '
         Me.AllowDrop = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(689, 738)
+        Me.ClientSize = New System.Drawing.Size(689, 756)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.grbOpciones)
         Me.Controls.Add(Me.optSQL)
         Me.Controls.Add(Me.txtSelect)
@@ -595,6 +626,8 @@ Partial Public Class Form1
         Me.Panel1.ResumeLayout(False)
         Me.grbOpciones.ResumeLayout(False)
         Me.grbOpciones.PerformLayout()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -641,4 +674,7 @@ Partial Public Class Form1
     Private WithEvents chkUsarOverrides As CheckBox
     Friend WithEvents grbOpciones As GroupBox
     Private WithEvents chkUsarSQLEXpress As CheckBox
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Private WithEvents LabelInfo As ToolStripStatusLabel
+    Friend WithEvents LabelVersion As ToolStripStatusLabel
 End Class
