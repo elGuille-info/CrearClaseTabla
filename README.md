@@ -30,10 +30,13 @@ Y el enlace original para acceder al código fuente y ejemplos:
 
 ![Figura 1: La utilidad en ejecución (versión de 2004)](https://www.elguille.info/NEt/adonet/crearclases/crearClases01.png)
 
+
+![Figura 2: La utilidad en ejecución (versión de 2022)](https://www.elguillemola.com/img/img2022/Screenshot_2022-10-01_140321.jpg)
+
 ## TODO:
 Todo eso lo tengo que actualizar o bien crear una nueva entrada en el blog.
 Ya está creada la entrada en el blog:
-
+[Generar las clases de una tabla de SQL Server o Access (mdb)](https://www.elguillemola.com/generar-las-clases-de-una-tabla-de-sql-server-o-access-mdb/)
 
 Sería interesante convertir el proyecto para .NET 6 (o 7) y también usando el código completamente en C#.
 Actualmente está creado para usar con .NET Framework 4.8.1 y escrito enteramente en Visual Basic.
