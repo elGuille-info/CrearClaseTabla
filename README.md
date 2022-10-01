@@ -32,4 +32,11 @@ Y el enlace original para acceder al código fuente y ejemplos:
 
 ## TODO:
 Todo eso lo tengo que actualizar o bien crear una nueva entrada en el blog.
+Ya está creada la entrada en el blog:
+
+
+Sería interesante convertir el proyecto para .NET 6 (o 7) y también usando el código completamente en C#.
+Actualmente está creado para usar con .NET Framework 4.8.1 y escrito enteramente en Visual Basic.
+
+
  
