@@ -206,10 +206,10 @@ Namespace elGuille.Util.Developer.Data
             sb.AppendFormat("{0} Fecha: {1}{2}", ConvLang.Comentario(), DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss").Replace("./", "/"), vbCrLf)
             sb.AppendFormat("{0}{1}", ConvLang.Comentario(), vbCrLf)
             ' Cambio 'guille' por (elGuille)                        (22/Mar/19)
-            If DateTime.Now.Year > 2021 Then
+            If DateTime.Now.Year > 2022 Then
                 sb.AppendFormat("{0}{1}", ConvLang.Comentario(String.Format(" ©Guillermo (elGuille) Som, 2004-{0}", DateTime.Now.Year)), vbCrLf)
             Else
-                sb.AppendFormat("{0}{1}", ConvLang.Comentario(" ©Guillermo (elGuille) Som, 2004-2021"), vbCrLf)
+                sb.AppendFormat("{0}{1}", ConvLang.Comentario(" ©Guillermo (elGuille) Som, 2004-2022"), vbCrLf)
             End If
             sb.AppendFormat("{0}{1}", ConvLang.Comentario("------------------------------------------------------------------------------"), vbCrLf)
             '
