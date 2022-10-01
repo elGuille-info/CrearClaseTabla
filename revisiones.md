@@ -2,7 +2,7 @@
 
 
 '------------------------------------------------------------------------------<br>
-' Revisiones las aplicación y las de esta biblioteca de clases<br>
+' Revisiones de la aplicación y las de esta biblioteca de clases<br>
 '------------------------------------------------------------------------------<br>
 
 ### Revisiones de 2022
