@@ -3,6 +3,7 @@
 ' Esta clase se usará como base de las de SQL y OleDb
 '
 ' Nota: Ver las revisiones en Revisiones.txt
+' Usar el fichero Revisiones.md en vez del .txt                 (01/oct/22 12.49)
 '
 ' ©Guillermo 'guille' Som, 2004, 2005, 2007, 2018-2022
 '------------------------------------------------------------------------------
