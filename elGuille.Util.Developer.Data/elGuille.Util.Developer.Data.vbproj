@@ -104,6 +104,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="revisiones.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Revisiones.txt" />
