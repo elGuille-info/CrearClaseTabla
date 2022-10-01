@@ -41,5 +41,11 @@ Ya está creada la entrada en el blog:
 Sería interesante convertir el proyecto para .NET 6 (o 7) y también usando el código completamente en C#.
 Actualmente está creado para usar con .NET Framework 4.8.1 y escrito enteramente en Visual Basic.
 
+## Actualización
+
+Ya está creado el proyecto para .NET 6.0 (Windows):
+[gsCrearClasesTablas](https://github.com/elGuille-info/gsCrearClasesTablas)
+
+
 
  
