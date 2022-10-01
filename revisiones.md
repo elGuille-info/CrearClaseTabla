@@ -1,10 +1,10 @@
 # elGuille.Util.Developer.Data
 
+```
 '------------------------------------------------------------------------------
 ' Revisiones las aplicación y las de esta biblioteca de clases
 '------------------------------------------------------------------------------
 
-```
 '<revision("1.1.0.12", _
 '   FechaModificacion:= "01/Oct/2022", _
 '   Tester:= "elGuille", _
@@ -164,6 +164,7 @@
 
 #### Revisiones de 2021
 
+```
 '<revision("1.0.0.32", _
 '   FechaModificacion:= "17/Abr/2021", _
 '   Tester:= "elGuille", _
@@ -186,10 +187,12 @@
 '   Motivo:= "Añadir una comprobación de si es nulo el objeto tran no usarlo.", _
 '   Solucion:= "Cambiar el código.", _
 '   Comentarios:= "Dio una vez error al no poder conectarse y no crearse el objeto connection.")>
-'
+
+```
 
 #### Revisiones de 2020
 
+```
 '<revision("1.0.0.30", _
 '   FechaModificacion:= "21/Dic/2020", _
 '   Tester:= "elGuille", _
@@ -332,10 +335,12 @@
 '   Motivo:= "No se veía la aplicación.", _
 '   Solucion:= "Usar la posición guardad solo si Left es mayor de -1.", _
 '   Comentarios:= "Después de haber usado un monitor externo, el valor de Left era negativo y no se mostraba bien sin ese monitor externo.")>
-'
+
+```
 
 #### Revisiones de 2019
 
+```
 '<revision("1.0.0.12", _
 '   FechaModificacion:= "20/Mar/2019", _
 '   Tester:= "elGuille", _
@@ -394,9 +399,12 @@
 '   Motivo:= "Añado la opción de usar AddWithValue a los comandos de UPDATE, INSERT y DELETE.", _
 '   Solucion:= "", _
 '   Comentarios:= "Añado la opción de usar AddWithValue a los comandos de UPDATE, INSERT y DELETE para facilitar la asignación ya que con Add fallaba algunas veces.")>
-'
+
+```
+
 #### Revisiones de 2018
 
+```
 '<revision("1.0.0.7", _
 '   FechaModificacion:= "16/Dic/2018", _
 '   Tester:= "elGuille", _
@@ -491,10 +499,11 @@
 '   Motivo:= "Nueva versión para Visual Basic 2017 de la librería con .NET 4.6.1.", _
 '   Solucion:= "", _
 '   Comentarios:= "Revisión de la librería para usar con Visual Studio 2017 y .NET 4.6.1")>
-'
+```
 
 #### Revisiones de 2007
 
+```
 '<revision("0.0.0.1", _
 '   FechaModificacion:= "17/Abr/2007", _
 '   Tester:= "elGuille", _
@@ -506,12 +515,13 @@
 '   Solucion:= "", _
 '   Comentarios:= "Nuevo nombre de la librería: elGuille.Util.Developer.Data " & _
 '				  "para publicarla en www.CodePlex.com/CrearClaseTabla")>
-'
+```
 
 ### Revisiones anteriores a 2007
 
 #### Revisiones de 2005
 
+```
 '<revision("1.0.1000.5", _
 '   FechaModificacion:= "08/Jun/2005", _
 '   Tester:= "elGuille", _
@@ -543,10 +553,11 @@
 '   Miembro:= "Borrar(sel)", _
 '   Motivo:= "El segundo parámetro en SQL (@p2) da error al usarlo con la clase authors.", _
 '   Solucion:= "Comentar la instrucción y recomendar que se compruebe con otras bases de SQL Server.")>
-'
+```
 
 #### Revisiones de 2004
 
+```
 '<revision("1.0.1000.2", _
 '   FechaModificacion:= "02/Nov/2004", _
 '   Tester:= "David Sans", _
@@ -569,3 +580,4 @@
 '   Solucion:= "Sustituir los espacios por guiones bajos.", _
 '   Comentarios:= "Esta comprobación se debería hacer en la utilidad de crear las clases.")>
 '
+```
