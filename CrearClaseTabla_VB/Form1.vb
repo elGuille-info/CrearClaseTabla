@@ -5,6 +5,8 @@
 '
 ' Para Visual Basic 2005 usando elGuille.Util.Developer.Data        (17/Abr/07)
 '
+' Quitar de gitHub los ficheros elguille.snk                    (01/oct/22 12.52)
+'
 ' ©Guillermo 'guille' Som, 2004-2005, 2007, 2018-2019, 2021-2022
 '------------------------------------------------------------------------------
 ' Revisiones:
