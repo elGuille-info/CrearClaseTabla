@@ -3,6 +3,8 @@
 '------------------------------------------------------------------------------
 ' Revisiones las aplicación y las de esta biblioteca de clases
 '------------------------------------------------------------------------------
+
+```
 '<revision("1.1.0.12", _
 '   FechaModificacion:= "01/Oct/2022", _
 '   Tester:= "elGuille", _
@@ -13,7 +15,7 @@
 '   Motivo:= "Solo estaba CInt en las conversiones de tipos de Visual Basic (para probar si iba).", _
 '   Solucion:= "Añadir todas las conversiones de Visual Basic: CBool,CByte,CChar,CDate,CDbl,CDec,CInt,CLng,CObj,CSByte,CShort,CSng,CStr,CUInt,CULng,CUShort y poner las correspondientes en C#.", _
 '   Comentarios:= "Añado estas conversiones, para facilitar la lectura quito Convert.: ToBoolean, ToByte, ToChar, ToDateTime, ToDouble, ToDecimal, ToInt32, ToInt64, (con CObj no haya nada que convertir), ToSByte, ToInt16, ToSingle, ToString, ToUInt32, ToUint64, ToUint16.")>
-'
+
 
 '<revision("1.1.0.11", _
 '   FechaModificacion:= "01/Oct/2022", _
@@ -25,7 +27,6 @@
 '   Motivo:= "Las conversiones de tipos de Visual Basic tipo CInt(variable) en C# las deja igual.", _
 '   Solucion:= "Añadir los tipos de las conversiones de Visual Basic (CInt, etc) para adecuarlas a C#: CInt(variable) debe ser Convert.ToInt32(variable).", _
 '   Comentarios:= "")>
-'
 
 '<revision("1.1.0.10", _
 '   FechaModificacion:= "01/Oct/2022", _
@@ -37,7 +38,6 @@
 '   Motivo:= "Quito los espacios alrededor de las primeras instrucciones y cambio el orden.", _
 '   Solucion:= "Cambio de orden las instrucciones para que AndAlso esté antes de And, OrElse antes de Or, IsNot antes de Is, Nothing antes de Not.", _
 '   Comentarios:= "En comprobarParam lo que hay que cambiar llega sin espacios (porque así se indica en el parámetro).")>
-'
 
 '<revision("1.1.0.9", _
 '   FechaModificacion:= "01/Oct/2022", _
@@ -49,7 +49,7 @@
 '   Motivo:= "Espacios alrededor de ls primeras instrucciones.", _
 '   Solucion:= "Añado espacios delante y detrás de |, &, ||, &&, !=, ==, null, !.", _
 '   Comentarios:= "Por si esta falta de espacios le quita claridad en C# (de todas formas los espacios extras no afectan).")>
-'
+
 
 '<revision("1.1.0.8", _
 '   FechaModificacion:= "01/Oct/2022", _
@@ -61,7 +61,7 @@
 '   Motivo:= "Esta asignación falla: Dim obj = LoQueSea, la convierte en Dim obj As = LoQueSea.", _
 '   Solucion:= "No usar As si no se indica el tipo en un Dim.", _
 '   Comentarios:= "Ahora se supone que las declaraciones implícitas funcionarán.")>
-'
+
 
 '<revision("1.1.0.7", _
 '   FechaModificacion:= "01/Oct/2022", _
@@ -73,7 +73,7 @@
 '   Motivo:= "No se tiene en cuenta la declaración del tipo implícito en C#.", _
 '   Solucion:= "Añado el tipo '' (cadena vacía) en Visual Basic y el correspondiente en C# es var.", _
 '   Comentarios:= "De esta forma cuando no se indique el tipo de datos, se usar var (espero).")>
-'
+
 
 '<revision("1.1.0.6", _
 '   FechaModificacion:= "01/Oct/2022", _
@@ -85,7 +85,7 @@
 '   Motivo:= "Espacios en Is y ==.", _
 '   Solucion:= "Añado espacios delante y detrás de And, AndAlso, Or, OrElse, IsNot, Is, Nothing y Not.", _
 '   Comentarios:= "Estaba definido ' Is' y se podía usar ' IsNot'.")>
-'
+
 
 '<revision("1.1.0.5", _
 '   FechaModificacion:= "01/Oct/2022", _
@@ -97,7 +97,7 @@
 '   Motivo:= "Al asignar Dim variable = LoQueSea en C# no pone var variable = LoQueSea;", _
 '   Solucion:= "Ver la revisión 1.1.0.7", _
 '   Comentarios:= "Al definir una variable implícita en C# no usa var (al menos en el caso que he probado en Crear).")>
-'
+
 
 '<revision("1.1.0.4", _
 '   FechaModificacion:= "01/Oct/2022", _
@@ -109,7 +109,7 @@
 '   Motivo:= "Falta AndAlso y OrElse.", _
 '   Solucion:= "Añado en instrVB: And, AndAlso, Or y OrElse, en instrCS: &, &&, | y ||.", _
 '   Comentarios:= "Espero que esto soluciones los argumentos del IF cuando son compuestos como en: If DBNull.Value.Equals(obj) OrElse obj Is Nothing Then.")>
-'
+
 
 '<revision("1.1.0.3", _
 '   FechaModificacion:= "01/Oct/2022", _
@@ -121,7 +121,7 @@
 '   Motivo:= "IsNot e Is no siempre funciona en C# con is ! o is, debe usarse != y ==.", _
 '   Solucion:= "Cambio is ! por != e is por ==.", _
 '   Comentarios:= "No recuerdo qué versión se necesita para usar is, pero en mi experiencia con != y == siempre funciona.")>
-'
+
 
 '<revision("1.1.0.2", _
 '   FechaModificacion:= "01/Oct/2022", _
@@ -133,7 +133,7 @@
 '   Motivo:= "Al indicar una cadena vacía como tipo de datos se comprueba si está definido.", _
 '   Solucion:= "Comprobar si es una cadena vacía para no hacer las comprobaciones.", _
 '   Comentarios:= "Ver la revisión 1.1.0.7 que modifica esto. Se devuelve una cadena vacía si se cumple que es una cadena vacía antes de hacer la comprobación de si el tipo está definido.")>
-'
+
 
 '<revision("1.1.0.1", _
 '   FechaModificacion:= "01/Oct/2022", _
@@ -145,7 +145,7 @@
 '   Motivo:= "Si en Crear ExecuteScalar devuelve nulo, que no se produzca una excepción al asignar el nuevo ID.", _
 '   Solucion:= "Compruebo si ExecuteScalar devuelve nulo al asignar el nuevo ID.", _
 '   Comentarios:= "En este caso no se me ha dado este problema, pero mejor curarse en salud.")>
-'
+
 
 '<revision("1.1.0.0", _
 '   FechaModificacion:= "01/Oct/2022", _
@@ -157,11 +157,12 @@
 '   Motivo:= "N.A.", _
 '   Solucion:= "N.A.", _
 '   Comentarios:= "Cambio de versión de .NET Framework a la 4.8.1.")>
-'
 
-## Revisiones anteriores a 2002
+```
 
-### Revisiones de 2021
+### Revisiones anteriores a 2002
+
+#### Revisiones de 2021
 
 '<revision("1.0.0.32", _
 '   FechaModificacion:= "17/Abr/2021", _
@@ -187,7 +188,7 @@
 '   Comentarios:= "Dio una vez error al no poder conectarse y no crearse el objeto connection.")>
 '
 
-### Revisiones de 2020
+#### Revisiones de 2020
 
 '<revision("1.0.0.30", _
 '   FechaModificacion:= "21/Dic/2020", _
@@ -333,7 +334,7 @@
 '   Comentarios:= "Después de haber usado un monitor externo, el valor de Left era negativo y no se mostraba bien sin ese monitor externo.")>
 '
 
-### Revisiones de 2019
+#### Revisiones de 2019
 
 '<revision("1.0.0.12", _
 '   FechaModificacion:= "20/Mar/2019", _
@@ -394,7 +395,7 @@
 '   Solucion:= "", _
 '   Comentarios:= "Añado la opción de usar AddWithValue a los comandos de UPDATE, INSERT y DELETE para facilitar la asignación ya que con Add fallaba algunas veces.")>
 '
-### Revisiones de 2018
+#### Revisiones de 2018
 
 '<revision("1.0.0.7", _
 '   FechaModificacion:= "16/Dic/2018", _
@@ -444,7 +445,6 @@
 '   Comentarios:= "Uso ConversorTipos.TIPOData para convertir los tipos. Los tipos convertidos son: Int16, Int32, Int64, Single, Decimal, Double, Byte, SByte, UInt16, UInt32, UInt64, Boolean, DateTime, Char, TimeSpan")>
 '
 
-
 '<revision("1.0.0.3", _
 '   FechaModificacion:= "14/Dic/2018", _
 '   Tester:= "elGuille", _
@@ -493,7 +493,7 @@
 '   Comentarios:= "Revisión de la librería para usar con Visual Studio 2017 y .NET 4.6.1")>
 '
 
-### Revisiones de 2007
+#### Revisiones de 2007
 
 '<revision("0.0.0.1", _
 '   FechaModificacion:= "17/Abr/2007", _
@@ -508,9 +508,9 @@
 '				  "para publicarla en www.CodePlex.com/CrearClaseTabla")>
 '
 
-## Revisiones anteriores a 2007
+### Revisiones anteriores a 2007
 
-### Revisiones de 2005
+#### Revisiones de 2005
 
 '<revision("1.0.1000.5", _
 '   FechaModificacion:= "08/Jun/2005", _
@@ -545,7 +545,7 @@
 '   Solucion:= "Comentar la instrucción y recomendar que se compruebe con otras bases de SQL Server.")>
 '
 
-### Revisiones de 2004
+#### Revisiones de 2004
 
 '<revision("1.0.1000.2", _
 '   FechaModificacion:= "02/Nov/2004", _
