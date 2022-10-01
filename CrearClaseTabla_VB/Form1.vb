@@ -47,6 +47,7 @@
 '
 '   2.1.0   01-oct-2022 Cambio a .NET Framework 4.8.1 y cambios en CrearClase.
 '   2.1.0.7 01-oct-2022 Añado un StatusStrip
+'   2.1.0.8             Creo el fichero elGuille_compartido.snk para firmar los ensamblados.
 '------------------------------------------------------------------------------
 Option Strict On
 Option Explicit On
@@ -77,7 +78,7 @@ Public Class Form1
             s = fvi.FileVersion
 
         Catch ex As Exception
-            s = "2.1.0.7"
+            s = "2.1.0.8"
         End Try
 
         Return s

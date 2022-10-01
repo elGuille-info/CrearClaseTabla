@@ -8,6 +8,17 @@
 ### Revisiones de 2022
 
 ```
+'<revision("1.1.0.13", _
+'   FechaModificacion:= "01/Oct/2022", _
+'   Tester:= "elGuille", _
+'   FechaReporte:= "01/Oct/2022", _
+'   Tipo:= "Revisión", _
+'   Clases:= "Proyectos", _
+'   Miembro:= "Firma con nombre seguro", _
+'   Motivo:= "No usar el fichero de nombre seguro que uso de forma privada.", _
+'   Solucion:= "He creado el fichero elGuille_compartido.snk para firmar los ensamblados.", _
+'   Comentarios:= "El fichero de nombre seguro elGuille_compartido.snk se podrá usar de forma pública para que los ensamblados estén con nombre seguro al descargarte el código de GitHub.")>
+
 '<revision("1.1.0.12", _
 '   FechaModificacion:= "01/Oct/2022", _
 '   Tester:= "elGuille", _
@@ -18,7 +29,6 @@
 '   Motivo:= "Solo estaba CInt en las conversiones de tipos de Visual Basic (para probar si iba).", _
 '   Solucion:= "Añadir todas las conversiones de Visual Basic: CBool,CByte,CChar,CDate,CDbl,CDec,CInt,CLng,CObj,CSByte,CShort,CSng,CStr,CUInt,CULng,CUShort y poner las correspondientes en C#.", _
 '   Comentarios:= "Añado estas conversiones, para facilitar la lectura quito Convert.: ToBoolean, ToByte, ToChar, ToDateTime, ToDouble, ToDecimal, ToInt32, ToInt64, (con CObj no haya nada que convertir), ToSByte, ToInt16, ToSingle, ToString, ToUInt32, ToUint64, ToUint16.")>
-
 
 '<revision("1.1.0.11", _
 '   FechaModificacion:= "01/Oct/2022", _

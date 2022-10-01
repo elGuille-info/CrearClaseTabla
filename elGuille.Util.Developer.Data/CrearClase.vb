@@ -5,6 +5,7 @@
 ' Nota: Ver las revisiones en Revisiones.txt
 ' Usar el fichero Revisiones.md en vez del .txt                 (01/oct/22 12.49)
 ' Quitar de gitHub los ficheros elguille.snk                    (01/oct/22 12.52)
+' Creo el fichero elGuille_compartido.snk para firmar los ensamblados.    (13.13)
 '
 ' ©Guillermo 'guille' Som, 2004, 2005, 2007, 2018-2022
 '------------------------------------------------------------------------------
