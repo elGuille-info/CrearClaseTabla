@@ -43,7 +43,7 @@ Actualmente está creado para usar con .NET Framework 4.8.1 y escrito enterament
 
 ## Actualización
 
-Ya está creado el proyecto para .NET 6.0 (Windows):
+Ya está creado el proyecto para .NET 6.0 (Windows) y .NET MAUI:
 [gsCrearClasesTablas](https://github.com/elGuille-info/gsCrearClasesTablas)
 
 
